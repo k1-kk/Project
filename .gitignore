@@ -1,0 +1,9 @@
+# 忽略依赖文件
+node_modules/
+venv/
+
+# 忽略缓存
+__pycache__/
+
+# 忽略配置文件（保护密码安全）
+.env
