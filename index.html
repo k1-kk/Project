@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 这里的 viewport 标签是移动端适配的第一步 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网页</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- 顶部导航条 -->
+    <nav class="navbar">
+        <div class="logo">MyPortfolio</div>
+        <!-- 练习点：JavaScript 事件绑定 -->
+        <button id="theme-toggle">切换暗黑模式</button>
+    </nav>
+  
+    <!-- 首屏区域 -->
+    <header class="hero" id="home">
+        <h1>你好，我是<span class="highlight">初级全栈开发者</span></h1>
+        <!-- <p>我正在学习前端与后端、Python、MySQL，并使其结合起来完成一个完整的项目</p> -->
+        <a href="#projects" class="btn">查看我的项目</a>
+    </header>
+    
+    <section class="section about-me" id="aboutMe">
+        <h2>关于我</h2>
+        <div class="aboutMe-coutainer">
+            <p>我正在学习前端与后端、Python、MySQL，会基础爬虫，使用 SQLite 存储读取数据，会使用 HTML / CSS / JavaScript 编写网页，目标岗位是全栈开发工程师</p>
+        </div>
+    </section>
+    <!-- 技能墙 -->
+    <section class="section" id="skills">
+        <h2>技术栈</h2>
+        <div class="skills-container">
+            <span class="skill-badge">HTML5 / CSS3</span>
+            <span class="skill-badge">JavaScript (ES6+)</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">FastAPI & 爬虫</span>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section class="section bg-light" id="projects">
+        <h2>精选项目</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="python">Python</button>
+            <button class="filter-btn" data-filter="frontend">前端</button>
+            <button class="filter-btn" data-filter="fullstack">全栈</button>
+        </div>
+        <!-- 练习点：重点观察这里的 CSS Flexbox 布局 -->
+        <div class="project-grid">
+            <!-- 项目卡片 1 -->
+            <div class="project-card" data-category="python">
+                <div class="card-image" style="background-color: #ffd700;"></div>
+                <div class="card-content">
+                    <h3>豆瓣 Top 250 数据抓取</h3>
+                    <p>使用 Python 编写的轻量级爬虫，自动提取电影名称、评分等，并导出为 CSV 格式。</p>
+                    <div class="tags">
+                        <button class="detail-btn">查看详情</button>
+                        <div class="project-detail">
+                            <p>项目难点：处理网页结构变化、数据清洗和 CSV 导出。</p>
+                            <p>项目收获：熟悉了请求、解析、存储的完整爬虫流程。</p>
+                        </div>
+                        <span>Python</span><span>Web Scraping</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 项目卡片 2 -->
+            <div class="project-card" data-category="frontend">
+                <div class="card-image" style="background-color: purple;"></div>
+                <div class="card-content">
+                    <h3>个人作品集网站</h3>
+                    <p>使用 HTML / CSS / JavaScript 编写前端代码，展示个人作品集</p>
+                    <div class="tags">
+                        <button class="detail-btn">查看详情</button>
+                        <div class="project-detail">
+                            <p>功能：响应式布局、暗黑模式、项目筛选、项目详情展开</p>
+                        </div>
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 项目卡片 3 -->
+            <div class="project-card" data-category="fullstack">
+                <div class="card-image" style="background-color: #00d2ff;"></div>
+                <div class="card-content">
+                    <h3>待开发的全栈项目</h3>
+                    <p>计划使用 FastAPI 作为后端，结合当前前端页面，实现数据的动态图表展示。</p>
+                    <div class="tags">
+                        <button class="detail-btn">查看详情</button>
+                        <div class="project-detail">
+                            <p>计划使用 FastAPI + MySQL 做后端接口，实现项目数据的增删改查和图表展示</p>
+                        </div>
+                        <span>FastAPI</span><span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 联系方式 -->
+    <section class="section" id="contact">
+        <h2>保持联系</h2>
+        <p>如果你对我的项目感兴趣，欢迎交流探讨！</p>
+        <a href="mailto:1651368107@qq.com" class="btn">发送邮件</a>
+    </section>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

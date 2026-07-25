@@ -1,0 +1,241 @@
+/* =========================================
+   1. 基础重置与全局变量
+   ========================================= */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #007bff;
+    --section-bg: #f8f9fa;
+}
+
+/* 暗黑模式变量（通过 JS 触发） */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --section-bg: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 使用 html 的 font-size 作为 rem 的基准 */
+html {
+    font-size: 16px; /* 1rem = 16px */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* =========================================
+   2. 导航栏 (Flexbox 基础应用)
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;   /*是排版魔法：它会把里面的元素（Logo 和按钮）分别推到最左边和最右边，中间留出空白。*/
+    align-items: center;              /*让 Logo 和按钮在垂直方向上居中对齐。*/
+    padding: 1rem 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;                 /*吸顶效果。当网页往下滚动时，导航栏会像贴纸一样粘在屏幕最顶部，不会跟着滚走。*/
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 100;
+}
+
+#theme-toggle {
+    cursor: pointer;
+}
+
+/* =========================================
+   3. 首屏区域 (vh 单位练习)
+   ========================================= */
+.hero {
+    /* 使用 vh 让首屏高度占据屏幕的 80% */
+    height: 70vh; 
+    display: flex;
+    flex-direction: column;         /*Flexbox 默认是横向排的，这行代码让里面的标题、简介、按钮改成从上往下竖着排。*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero h1 {
+    font-size: 3rem; /* 使用 rem 控制字体大小 */
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+    transition: opacity 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* =========================================
+   4. 通用区块设置
+   ========================================= */
+.section {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--section-bg);
+}
+
+/* =========================================
+   5. 技能与项目 (Flexbox 进阶应用)
+   ========================================= */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.skill-badge {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap; /* 允许卡片折行 */
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+
+    align-items: flex-start;
+}
+
+.filter-buttons {
+      margin-top: 1.5rem;
+  }
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.project-card {
+    /* 基础宽度为 300px，随着屏幕变大可以适度拉伸 */
+    flex: 1 1 300px; 
+    /* flex: 1 1 300px; 是三个属性的缩写：
+    flex-grow: 1（允许放大）：如果有剩余空间，卡片可以拉伸填满。
+    flex-shrink: 1（允许缩小）：如果空间不够，卡片可以被挤压。
+    flex-basis: 300px（基础宽度）：卡片最理想的宽度是 300px。 */
+    max-width: 400px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    height: 150px;
+    width: 100%;
+}
+
+.card-content {
+    padding: 1.5rem;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tags {
+    margin-top: auto;
+}
+
+.tags span {
+    display: inline-block;
+    font-size: 0.8rem;
+    background-color: #eee;
+    color: #333;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+}
+
+.detail-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.detail-btn:hover {
+    opacity: 0.85;
+}
+
+.project-detail {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.project-card.open .project-detail {
+    display: block;
+}
+
+/* =========================================
+   6. 移动端响应式适配 (Media Queries)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 当屏幕宽度小于 768px (通常是手机) 时触发 */
+    html {
+        font-size: 14px; /* 整体缩小基础字号，所有 rem 单位都会跟随缩小 */
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* project-card 因为有 flex: 1 1 300px 会自动堆叠成单列，这里不需要额外写太多 */
+}
