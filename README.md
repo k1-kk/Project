@@ -18,6 +18,10 @@
 
 - 直接运行 index.html 即可
 
+## 在线预览
+
+https://k1-kk.github.io/Project/
+
 ## 下一步计划
 
 - 部署在云端服务器上
