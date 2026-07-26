@@ -52,7 +52,7 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 5rem;
+    gap: 2rem;
     align-items: center;
 }
 .nav-btn {
@@ -106,10 +106,6 @@ body {
     border-radius: 5px;
     margin-top: 1.5rem;
     transition: opacity 0.3s;
-}
-
-.btn:hover {
-    opacity: 0.8;
 }
 
 /* =========================================
@@ -236,6 +232,32 @@ body {
 
 .detail-btn:hover {
     opacity: 0.85;
+}
+
+
+.project-actions {
+    /* margin-top: 1rem; */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.project-link {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.project-link:hover {
+    opacity: 0.85;  
 }
 
 .project-detail {
