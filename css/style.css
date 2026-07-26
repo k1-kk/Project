@@ -39,6 +39,7 @@ body {
    ========================================= */
 .navbar {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;   /*是排版魔法：它会把里面的元素（Logo 和按钮）分别推到最左边和最右边，中间留出空白。*/
     align-items: center;              /*让 Logo 和按钮在垂直方向上居中对齐。*/
     padding: 1rem 5%;
@@ -47,6 +48,26 @@ body {
     top: 0;
     background-color: var(--bg-color);
     z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+.nav-btn {
+    display: inline-block;
+    text-decoration: none;
+    color:var(--text-color);
+    
+}
+
+.nav-btn:hover {
+    color: var(--primary-color);
+}
+
+.btn:hover {
+    opacity: 0.8;
 }
 
 #theme-toggle {
@@ -97,6 +118,12 @@ body {
 .section {
     padding: 4rem 5%;
     text-align: center;
+}
+
+.aboutMe-container {
+    max-width: 760px;
+    margin:2rem auto 0;
+    line-height: 1.8;
 }
 
 .bg-light {
@@ -238,4 +265,16 @@ body {
     }
     
     /* project-card 因为有 flex: 1 1 300px 会自动堆叠成单列，这里不需要额外写太多 */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
 }
