@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial,"Mircosoft YaHei",sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+}
+
+header h1 {
+    margin-top: 0.5rem;
+}
+
+header p {
+    color: #666;
+}
+
+.controls {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0 , 0, 0.06);
+}
+
+.controls input {
+    width: 140px;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid #d6dbe1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.controls button {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.controls button:hover {
+    background-color: #1d4ed8;
+}
+
+#status {
+    text-align: center;
+    color: #555;
+    min-height: 1.5rem;
+}
+
+.movie-grid {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.movie-card {
+    background-color: white;
+    overflow: hidden;
+    width: 180px;
+    box-shadow: 0 6px 16px rgba(0,0 , 0, 0.08);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0 , 0, 0.12);
+}
+
+.movie-cover {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-card h3 {
+    margin: 0;
+    padding: 0.9rem 0.9rem 0.4rem;
+    font-size: 1.2rem;
+}
+
+.movie-card p {
+    margin: 0;
+    padding: 0 0.9rem 1rem;
+    color: #e62f22;
+    font-weight: bold;
+}
+
