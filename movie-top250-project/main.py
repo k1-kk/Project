@@ -3,10 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine,Column,Integer,Float,String
 from sqlalchemy.orm import declarative_base,sessionmaker,Session
 import uvicorn
-
-import requests
 from fastapi.responses import StreamingResponse
-import io
+
+# import requests
+# import io
 
 #创建基础样式base       orm
 Base = declarative_base()
@@ -43,11 +43,8 @@ def get_db():
     finally:
         db.close()
 
-# @app.get("/movies")
-# def read_movies(db:SessionLocal = Depends(get_db)):
-#     movies = db.query(Movie).all()
-#     return movies
 
+# 获取图片
 # @app.get("/proxy-image")
 # def proxy_image(url: str):
 #     """
@@ -71,6 +68,7 @@ def get_db():
 #     except Exception as e:
 #          return {"error": str(e)}
 
+
 @app.get("/movies")
 def read_movies(
     min_rating: float = 0.0, # 默认最低 0 分
@@ -87,5 +85,6 @@ def read_movies(
     movies = query.limit(limit).all()
 
     return movies
+
 if __name__ == "__main__":
     uvicorn.run(app,host='127.0.0.1',port=8000)
