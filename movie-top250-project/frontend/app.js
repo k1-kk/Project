@@ -5,9 +5,12 @@ const minRatingInput = document.getElementById("min-rating");
 const maxRatingInput = document.getElementById("max-rating");
 const limitInput = document.getElementById("limit");
 
-loadBtn.addEventListener("click",async() =>{
+async function loadMovies() {
     statusText.textContent = "加载中...";
     movieGrid.innerHTML = "";
+
+    loadBtn.disabled = true;
+    loadBtn.textContent = "加载中...";
 
     try {
         const minRating = minRatingInput.value || 0;
@@ -16,6 +19,7 @@ loadBtn.addEventListener("click",async() =>{
         const url = `http://127.0.0.1:8000/movies?min_rating=${minRating}&max_rating=${maxRating}&limit=${limit}`;
 
         const response = await fetch(url);
+
         if (!response.ok) {
             throw new Error("接口请求失败");
         }
@@ -43,7 +47,14 @@ loadBtn.addEventListener("click",async() =>{
         }
 
         statusText.textContent = `加载完成，共${movies.length}部电影`;
-    }catch(error){
+    } catch(error){
         statusText.textContent = `加载失败，请检查后端程序是否启动`;
-    };
-});
+    } finally {
+        loadBtn.disabled = false;
+        loadBtn.textContent = "查询电影";
+    } 
+}
+
+loadBtn.addEventListener("click",loadMovies)
+
+loadMovies();

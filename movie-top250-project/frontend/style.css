@@ -53,6 +53,11 @@ header p {
     font-size: 0.95rem;
 }
 
+.controls button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
 .controls button:hover {
     background-color: #1d4ed8;
 }
