@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2937;
+}
+
+.page-header {
+    padding: 2.5rem 1rem 1.5rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+}
+
+.page-header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.app-layout {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.panel {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.form-panel,
+.list-panel {
+    padding: 1.25rem;
+}
+
+.panel h2 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+}
+
+.job-form {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.job-form label {
+    display: grid;
+    gap: 0.4rem;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.job-form input,
+.job-form select,
+.job-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.job-form textarea {
+    resize: vertical;
+}
+
+.job-form button,
+.list-header button,
+.delete-btn,
+.edit-btn {
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.job-form button {
+    padding: 0.75rem 1rem;
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.job-form button:hover {
+    background-color: #1d4ed8;
+}
+
+.job-form .secondary-btn {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.job-form .secondary-btn:hover {
+    background-color: #d1d5db;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.list-header h2 {
+    margin: 0;
+}
+
+.list-header button {
+    padding: 0.55rem 0.9rem;
+    background-color: #eef2ff;
+    color: #3730a3;
+}
+
+.status-text {
+    min-height: 1.4rem;
+    margin: 0 0 1rem;
+    color: #6b7280;
+}
+
+.job-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.job-card {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: start;
+}
+
+.job-card h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.05rem;
+}
+
+.job-card p {
+    margin: 0.3rem 0;
+    color: #4b5563;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    background-color: #ecfdf5;
+    color: #047857;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.job-meta {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.job-link {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.job-link:hover {
+    text-decoration: underline;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.85rem;
+}
+
+.edit-btn,
+.delete-btn {
+    margin-top: 0.85rem;
+    padding: 0.5rem 0.8rem;
+}
+
+.edit-btn {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.edit-btn:hover {
+    background-color: #bfdbfe;
+}
+
+.delete-btn {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.delete-btn:hover {
+    background-color: #fecaca;
+}
+
+@media (max-width: 820px) {
+    .app-layout {
+        grid-template-columns: 1fr;
+    }
+}

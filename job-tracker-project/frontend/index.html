@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求职管理系统</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>求职管理系统</h1>
+        <p>记录投递岗位、跟进状态和面试进度</p>
+    </header>
+
+    <main class="app-layout">
+        <section class="panel form-panel">
+            <h2>添加岗位</h2>
+            <form id="jobForm" class="job-form">
+                <label>
+                    公司名称
+                    <input id="company" type="text" required placeholder="例如 OpenAI">
+                </label>
+
+                <label>
+                    岗位名称
+                    <input id="position" type="text" required placeholder="例如 Frontend Developer">
+                </label>
+
+                <label>
+                    投递状态
+                    <select id="status">
+                        <option value="未投递">未投递</option>
+                        <option value="已投递">已投递</option>
+                        <option value="面试中">面试中</option>
+                        <option value="已拒绝">已拒绝</option>
+                        <option value="已 offer">已 offer</option>
+                    </select>
+                </label>
+
+                <label>
+                    投递日期
+                    <input id="applyDate" type="date">
+                </label>
+
+                <label>
+                    岗位链接
+                    <input id="jobUrl" type="url" placeholder="https://example.com/job">
+                </label>
+
+                <label>
+                    备注
+                    <textarea id="note" rows="4" placeholder="记录面试时间、准备事项等"></textarea>
+                </label>
+
+                <div class="form-actions">
+                    <button id="submitBtn" type="submit">保存岗位</button>
+                    <button id="cancelEditBtn" type="button" class="secondary-btn" hidden>取消编辑</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel list-panel">
+            <div class="list-header">
+                <h2>岗位列表</h2>
+                <button id="refreshBtn" type="button">刷新</button>
+            </div>
+
+            <p id="statusText" class="status-text"></p>
+            <div id="jobList" class="job-list"></div>
+        </section>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>
