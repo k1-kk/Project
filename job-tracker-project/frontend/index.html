@@ -33,7 +33,7 @@
                         <option value="已投递">已投递</option>
                         <option value="面试中">面试中</option>
                         <option value="已拒绝">已拒绝</option>
-                        <option value="已 offer">已 offer</option>
+                        <option value="已offer">已offer</option>
                     </select>
                 </label>
 
@@ -63,6 +63,14 @@
             <div class="list-header">
                 <h2>岗位列表</h2>
                 <button id="refreshBtn" type="button">刷新</button>
+            </div>
+            <div class="btn-list">
+                <button class="filter-btn active" data-filter="全部">全部</button>
+                <button class="filter-btn" data-filter="未投递">未投递</button>
+                <button class="filter-btn" data-filter="已投递">已投递</button>
+                <button class="filter-btn" data-filter="面试中">面试中</button>
+                <button class="filter-btn" data-filter="已拒绝">已拒绝</button>
+                <button class="filter-btn" data-filter="已offer">已offer</button>
             </div>
 
             <p id="statusText" class="status-text"></p>

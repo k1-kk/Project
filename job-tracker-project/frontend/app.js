@@ -14,8 +14,31 @@ const applyDateInput = document.getElementById("applyDate");
 const jobUrlInput = document.getElementById("jobUrl");
 const noteInput = document.getElementById("note");
 
+const btnLists = document.querySelectorAll(".filter-btn")
+
 let editingJobId = null;
 let currentJobs = [];
+let activeFilter = "全部";
+
+function applyFilter() {
+    const jobCards = document.querySelectorAll(".job-card");
+    let visibleCount = 0;
+
+    jobCards.forEach(card => {
+        const status = card.dataset.status;
+
+        if (activeFilter === "全部" || status === activeFilter) {
+            card.style.display = "block";
+            visibleCount++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    updateFilterButtons();
+    setStatus(`当前筛选：${activeFilter}，共 ${visibleCount} 条岗位记录`);
+}
+
 
 function setStatus(message) {
     statusText.textContent = message;
@@ -65,6 +88,7 @@ function renderJobs(jobs) {
     jobs.forEach((job) => {
         const card = document.createElement("article");
         card.className = "job-card";
+        card.dataset.status = job.status;
 
         const jobLink = job.job_url
             ? `<a class="job-link" href="${job.job_url}" target="_blank" rel="noopener noreferrer">查看岗位链接</a>`
@@ -85,13 +109,14 @@ function renderJobs(jobs) {
             </div>
 
             <div class="card-actions">
-                <button class="edit-btn" data-id="${job.id}">编辑</button>
-                <button class="delete-btn" data-id="${job.id}">删除</button>
+                <button class="edit-btn" type="button" data-id="${job.id}">编辑</button>
+                <button class="delete-btn" type="button" data-id="${job.id}">删除</button>
             </div>
         `;
 
         jobList.appendChild(card);
     });
+    applyFilter();
 }
 
 async function fetchJobs() {
@@ -106,7 +131,7 @@ async function fetchJobs() {
         const jobs = await response.json();
         currentJobs = jobs;
         renderJobs(jobs);
-        setStatus(`共 ${jobs.length} 条岗位记录`);
+        // setStatus(`共 ${jobs.length} 条岗位记录`);
     } catch (error) {
         setStatus("加载失败，请确认后端服务已启动");
     }
@@ -135,9 +160,13 @@ async function saveJob(event) {
             throw new Error(isEditing ? "更新岗位失败" : "新增岗位失败");
         }
 
-        setStatus(isEditing ? "岗位更新成功" : "岗位保存成功");
         resetFormMode();
         await fetchJobs();
+
+        setStatus(isEditing ? "岗位更新成功" : "岗位保存成功");
+        setTimeout(() => {
+            applyFilter();
+        }, 3000);
     } catch (error) {
         setStatus(isEditing ? "更新失败，请稍后再试" : "保存失败，请检查表单内容或后端服务");
     }
@@ -160,9 +189,7 @@ async function deleteJob(jobId) {
     }
 }
 
-jobForm.addEventListener("submit", saveJob);
-refreshBtn.addEventListener("click", fetchJobs);
-cancelEditBtn.addEventListener("click", resetFormMode);
+
 
 jobList.addEventListener("click", (event) => {
     const jobId = Number(event.target.dataset.id);
@@ -177,6 +204,28 @@ jobList.addEventListener("click", (event) => {
     if (event.target.classList.contains("delete-btn")) {
         deleteJob(jobId);
     }
+});
+
+
+function updateFilterButtons() {
+    btnLists.forEach(button => {
+        if (button.dataset.filter === activeFilter) {
+            button.classList.add("active");
+        } else {
+            button.classList.remove("active");
+        }
+    });
+}
+
+jobForm.addEventListener("submit", saveJob);
+refreshBtn.addEventListener("click", fetchJobs);
+cancelEditBtn.addEventListener("click", resetFormMode);
+
+btnLists.forEach(button => {
+    button.addEventListener('click', () => {
+        activeFilter = button.dataset.filter;
+        applyFilter();
+    });
 });
 
 fetchJobs();

@@ -129,6 +129,36 @@ body {
     color: #3730a3;
 }
 
+.btn-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-list button {
+    padding: 0.35rem 0.7rem;
+    background-color: #eef2ff;
+    color: black;
+    border: 1px solid #e5e7eb;
+}
+
+.btn-list button:hover {
+    background-color: #2453ec23;
+}
+
+.filter-btn.active {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+.filter-btn {
+    cursor: pointer;
+}
+
 .status-text {
     min-height: 1.4rem;
     margin: 0 0 1rem;
